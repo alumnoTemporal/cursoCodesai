@@ -17,4 +17,18 @@ public class testprueba {
         assertTrue(true);
     }
 
+    /*
+    public class Test
+    {
+
+        public static void main(String[] args)
+        {
+            ClaseA ca = mock(ClaseA.class);
+            ClaseB cb =new ClaseB();
+            cb.setCa(ca);
+            cb.met1();
+            Mockito.verify(ca, Mockito.times(2)).fonc1();
+            Mockito.verify(ca, Mockito.times(1)).fonc3( Mockito.anyInt(), Mockito.anyInt());
+        }
+        */
 }
