@@ -1,3 +1,5 @@
+package otrasKatas;
+
 /**
  * Created by Usuario on 11/10/2016.
  */

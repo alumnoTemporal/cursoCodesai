@@ -1,3 +1,5 @@
+package otrasKatas;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -10,7 +12,7 @@ public class PrintDateTest {
     @Test
     public void imprimir(){
 
-        new PrintDate(new Date(), System.out ).printCurrent();
+        new otrasKatas.PrintDate(new otrasKatas.Date(), System.out ).printCurrent();
     }
 */
 

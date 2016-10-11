@@ -1,4 +1,4 @@
-/**
+package otrasKatas; /**
  * Created by Usuario on 09/10/2016.
  */
 
