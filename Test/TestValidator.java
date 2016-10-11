@@ -9,19 +9,28 @@ import static org.junit.Assert.*;
 public class TestValidator {
 
     @Test
-    public void passwordHasMore8charcracters(){
-        Validator validator = new Validator();
-
-        String pass = "123456789";
-        boolean isMoreCharacter =  validator.isMoreEightCharacters(pass);
-
-        assertTrue(isMoreCharacter);
-
-
-
+    public void passwordOk(){
+        String passwordOK = "Pa55word_";
+        assertTrue(Validator.validate(passwordOK));
     }
 
+    @Test
+    public void passwordHasEigthCharacters(){
+        String password = "Pa55wod_";
+        assertFalse(Validator.validate(password));
+    }
 
+    @Test
+    public void passwordHasLessThanEigthCharacters(){
+        String password = "Pa55wd_";
+        assertFalse(Validator.validate(password));
+    }
+
+    @Test
+    public void doesntContainscapitalLetters(){
+        String password = "pa55word_";
+        assertFalse(Validator.validate(password));
+    }
 
 
 }
