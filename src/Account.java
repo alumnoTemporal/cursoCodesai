@@ -6,10 +6,12 @@ import java.util.List;
  */
 public class Account {
 
+    List<Transaction> listTransaction;
 
     public void addAmount(int i) {
     }
 
     public void extractAmount(int i) {
+
     }
 }

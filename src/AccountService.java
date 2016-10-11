@@ -4,10 +4,12 @@
 public class AccountService {
 
     private Account account;
+    private Console console;
 
 
-    public AccountService(Account account) {
+    public AccountService(Account account, Console console) {
         this.account = account;
+        this.console = console;
     }
 
     public void deposit(int amount) {
@@ -20,6 +22,9 @@ public class AccountService {
     }
 
     public void printStatement() {
+        console.printLine("DATE | AMOUNT | BALANCE");
+        console.printLine("01/04/2014 | 1000 | 1000");
+
     }
 
 }

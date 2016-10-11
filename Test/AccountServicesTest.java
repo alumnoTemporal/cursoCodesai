@@ -12,8 +12,9 @@ public class AccountServicesTest {
     @Test @Ignore
     public void should_print_statement_containing_all_transactions() {
         Account account = mock(Account.class);
-        AccountService accountService = new AccountService(account);
-        Console console = new Console();
+        Console console = mock(Console.class);
+        AccountService accountService = new AccountService(account,console);
+
 
         accountService.deposit(1000);
         accountService.withdraw(100);
@@ -30,7 +31,8 @@ public class AccountServicesTest {
     @Test
     public void deposit_1000_in_the_count(){
         Account account = mock(Account.class);
-        AccountService accountService = new AccountService(account);
+        Console console = mock(Console.class);
+        AccountService accountService = new AccountService(account, console);
 
         accountService.deposit(1000);
 
@@ -40,7 +42,8 @@ public class AccountServicesTest {
     @Test
     public void withdraw_100_in_the_count(){
         Account account = mock(Account.class);
-        AccountService accountService = new AccountService(account);
+        Console console = mock(Console.class);
+        AccountService accountService = new AccountService(account, console);
 
         accountService.withdraw(100);
 
@@ -48,14 +51,44 @@ public class AccountServicesTest {
     }
 
     @Test
-    public void print_statement(){
+    public void print_statement_header(){
         Account account = mock(Account.class);
-        AccountService accountService = new AccountService(account);
+        Console console = mock(Console.class);
+        AccountService accountService = new AccountService(account, console);
 
-        accountService.withdraw(100);
+        accountService.printStatement();
 
-        verify(account).extractAmount(100);
+        verify(console).printLine("DATE | AMOUNT | BALANCE");
     }
+
+    @Test
+    public void print_statement_deposit_with_first_transaction_with_1000(){
+        Account account = mock(Account.class);
+        Console console = mock(Console.class);
+        AccountService accountService = new AccountService(account, console);
+
+        accountService.deposit(1000);
+        accountService.printStatement();
+
+        verify(console).printLine("DATE | AMOUNT | BALANCE");
+        verify(console).printLine("01/04/2014 | 1000 | 1000");
+
+    }
+
+    @Test
+    public void print_statement_deposit_with_first_transaction_with_900(){
+        Account account = mock(Account.class);
+        Console console = mock(Console.class);
+        AccountService accountService = new AccountService(account, console);
+
+        accountService.deposit(900);
+        accountService.printStatement();
+
+        verify(console).printLine("DATE | AMOUNT | BALANCE");
+        verify(console).printLine("01/04/2014 | 900 | 900");
+    }
+
+
  /*
     public class Test
     {
